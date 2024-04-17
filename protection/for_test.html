@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade Protection Quiz</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background: linear-gradient(145deg, #C1B8C8, #9E829C);
+            color: #fff;
+            padding: 20px;
+            background-attachment: fixed;
+            font-size: 18px;
+        }
+        .container {
+            margin: 20px auto;
+            /* padding: 20px; */
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            width: 80%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .question {
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+        .options input[type="radio"], #inputAnswer, #inputAnswer2 {
+            margin: 10px 0;
+            padding: 15px; /* Larger padding for options and input fields */
+            background: #fff;
+            color: #000;
+            border-radius: 5px;
+            font-size: 1.2em; /* Larger font size for options and input text */
+        }
+        .options {
+            font-size: 1.2em;
+        }
+        button, a {
+            display: inline-block;
+            background-color: #fff;
+            color: #007BFF;
+            padding: 15px 30px;
+            margin: 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        button:hover, a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        
+        .wrong, .right {
+            font-weight: bold;
+            display: none; /* Hide by default */
+            font-size: 1.2em;
+            margin: 10px;
+        }
+        .right { color: #4CAF50; } /* Green color for correct answers */
+        .wrong { color: #F44336; }
+
+        .end {
+            margin: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="question">1. Which industry is often cited as a beneficiary of protection due to its early development stage and high initial R&D costs?</div>
+        <div class="options">
+            <input type="radio" name="q1" value="automotive"> Automotive<br>
+            <input type="radio" name="q1" value="pharmaceutical"> Pharmaceutical<br>
+            <input type="radio" name="q1" value="agriculture"> Agriculture<br>
+            <input type="radio" name="q1" value="technology"> Technology<br>
+        </div>
+        
+        <div class="question">2. What is the term for economic policies that protect domestic industries from foreign competition?</div>
+        <input id="inputAnswer" type="text" placeholder="Your Answer Here">
+        
+        <div class="question">3. Which of the following is NOT a tool of trade protection?</div>
+        <div class="options">
+            <input type="radio" name="q3" value="tariffs"> Tariffs<br>
+            <input type="radio" name="q3" value="subsidies"> Subsidies<br>
+            <input type="radio" name="q3" value="quotas"> Quotas<br>
+            <input type="radio" name="q3" value="free trade agreements"> Free Trade Agreements<br>
+        </div>
+
+        <div class="question">4. Why might a government impose tariffs on imported agricultural products?</div>
+        <div class="options">
+            <input type="radio" name="q4" value="variety"> To increase the variety of food available to consumers.<br>
+            <input type="radio" name="q4" value="local"> To support local farmers and promote domestic food production.<br>
+            <input type="radio" name="q4" value="quality"> To lower the quality of food due to less competition.<br>
+            <input type="radio" name="q4" value="import"> To enhance the import of exotic fruits and vegetables.<br>
+        </div>
+
+        <div class="question">5. Non-tariff barriers can be implemented to slow down the ____ of certain goods, allowing the domestic market to develop its own supply chain.</div>
+        <input id="inputAnswer2" type="text" placeholder="Your Answer Here">
+
+        <div class="question">6. Which argument for trade protection is the reason countries feel their intellectual property has been stolen?</div>
+        <div class="options">
+            <input type="radio" name="q6" value="environmental"> Environmental Standard<br>
+            <input type="radio" name="q6" value="unfair"> Unfair Competition<br>
+            <input type="radio" name="q6" value="BOP"> Balance-of-Payments Correction<br>
+            <input type="radio" name="q6" value="jobs"> Protection of Jobs<br>
+        </div>
+    
+        <button onclick="submitQuiz()">Submit Quiz</button>
+
+        <div class="ans">
+            <div class="wrong">You answered question 1 incorrectly. The answer is "Pharmaceutical".</div>
+            <div class="right">You answered question 1 correctly</div>
+        </div>
+        <div class="ans">
+            <div class="wrong">You answered question 2 incorrectly. The answer is "protection" or "protectionism".</div>
+            <div class="right">You answered question 2 correctly</div>
+        </div>
+        <div class="ans">
+            <div class="wrong">You answered question 3 incorrectly. The answer is "Free Trade Agreements".</div>
+            <div class="right">You answered question 3 correctly</div>
+        </div>
+        <div class="ans">
+            <div class="wrong">You answered question 4 incorrectly. The answer is "To support local farmers and promote domestic food production".</div>
+            <div class="right">You answered question 4 correctly</div>
+        </div>
+        <div class="ans">
+            <div class="wrong">You answered question 5 incorrectly. The answer is "import"</div>
+            <div class="right">You answered question 5 correctly</div>
+        </div>
+        <div class="ans">
+            <div class="wrong">You answered question 6 incorrectly. The answer is "Unfair Competition".</div>
+            <div class="right">You answered question 6 correctly</div>
+        </div>
+
+        <div class="end" style="display: none;">
+            You may now explore the arguments against trade protection.<br/>
+            <a href="../free/cons.html">Free Trade</a> <br>
+            Or simply go home <br>
+            <a href="../index.html">Home</a>
+        </div>
+
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 5;
+            var correctAnswer1 = 'pharmaceutical';
+            var correctAnswer2 = 'protectionism';
+            var correctAnswer22 = 'protection';
+            var correctAnswer3 = 'free trade agreements';
+            var correctAnswer4 = 'local';
+            var correctAnswer5 = 'import';
+            var correctAnswer6 = 'unfair';
+            var wrong = document.getElementsByClassName("wrong")
+            var right = document.getElementsByClassName("right")
+          
+            var q1Answers = document.getElementsByName('q1');
+            for (var i = 0; i < q1Answers.length; i++) {
+                if (q1Answers[i].checked && q1Answers[i].value === correctAnswer1) {
+                    right[0].style.display = "block";
+                } else if (q1Answers[i].checked) {
+                    wrong[0].style.display = "block";
+                }
+            }
+
+            // Check question 2
+            var q2Answer = document.getElementById('inputAnswer');
+            if (q2Answer.value.toLowerCase() === correctAnswer2 || q2Answer.value.toLowerCase() === correctAnswer22) {
+                right[1].style.display = "block";
+            } else {
+                wrong[1].style.display = "block";
+            }
+            
+            // Check question 3
+            var q3Answers = document.getElementsByName('q3');
+            for (var i = 0; i < q3Answers.length; i++) {
+                if (q3Answers[i].checked && q3Answers[i].value === correctAnswer3) {
+                    right[2].style.display = "block";
+                } else if (q3Answers[i].checked) {
+                    wrong[2].style.display = "block";
+                }
+            }
+
+            // check question 4
+            var q4Answers = document.getElementsByName('q4');
+            for (var i = 0; i < q4Answers.length; i++) {
+                if (q4Answers[i].checked && q4Answers[i].value === correctAnswer4) {
+                    right[3].style.display = "block";
+                } else if (q4Answers[i].checked) {
+                    wrong[3].style.display = "block";
+                }
+            }
+            
+            // Check question 5
+            var q5Answer = document.getElementById('inputAnswer2');
+            if (q5Answer.value.toLowerCase() === correctAnswer5) {
+                right[4].style.display = "block";
+            } else {
+                wrong[4].style.display = "block";
+            }
+            
+            // Check question 6
+            var q6Answers = document.getElementsByName('q6');
+            for (var i = 0; i < q6Answers.length; i++) {
+                if (q6Answers[i].checked && q6Answers[i].value === correctAnswer6) {
+                    right[5].style.display = "block";
+                } else if (q6Answers[i].checked) {
+                    wrong[5].style.display = "block";
+                    console.log(q6Answers[i])
+                }
+            }
+            
+            // Display the score
+            // Disable the button after submission to prevent resubmission
+            document.querySelector('button').disabled = true;
+            document.getElementsByClassName("end")[0].style.display = "block";
+        }
+    </script>
+</body>
+</html>

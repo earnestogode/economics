@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protectionism</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 40px;
+        }
+        html {
+            background: linear-gradient(145deg, #C1B8C8, #9E829C);
+        }
+        #title, #intro {
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%; /* Adjust width for better readability */
+            background: rgba(0, 0, 0, 0.6); /* Slightly darker to improve text visibility */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+        #title {
+            font-size: 2em; /* Adjusted for emphasis */
+        }
+        #intro {
+            font-size: 1.8em; /* Slightly larger for clarity */
+        }
+        input[type="text"] {
+            font-size: 1.7em;
+            padding: 10px;
+            margin: 10px 0; /* Adjusted margin for spacing */
+            border-radius: 5px;
+            border: none; /* Removes default border */
+            outline: none; /* Removes the outline to fit the theme better */
+            width: 80%; /* Significantly increased width */
+            max-width: 600px; /* Maximum width to prevent it from being too wide on larger screens */
+        }
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #007BFF;
+            padding: 15px 30px;
+            margin: 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .answer {
+            font-size: 2em;
+            font-weight: 400;
+        }
+        .onclick, .wrong {
+            display: none;
+        }
+        .wrong {
+            color: #FF6347; /* Tomato color for the warning text */
+            font-weight: bold;
+            font-size: 2.5em;
+            -webkit-text-stroke: 1px #000000;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">You believe protectionism is better for a country</h1>
+    <div id="intro">Before we continue, let's take a look at what trade protection actually is. Define trade protection in your own words:</div>
+    <input id="inp" type="text">
+    <a class="btn" onclick="show()">Submit</a>
+    <div class="answer onclick">That's great! Trade protection refers to government policies that restrict international trade to help domestic industries.</div>
+    <br/>
+    <div class="answer next onclick">Because you said that, let's dive into why a country might choose to impose protection over free trade</div>
+    <a class="btn onclick" href="pros.html" style="text-decoration: none;">Pros of Protectionism</a>
+    <div class="wrong">ANSWER THE DAMN QUESTION</div>
+
+    <script>
+        const isEmpty = str => !str.trim().length;
+        function show(){
+            if (!isEmpty(document.getElementById('inp').value)) {
+                document.getElementsByClassName('wrong')[0].style.display = 'none'
+                var showin = document.getElementsByClassName("onclick")
+                for (i=0; i<showin.length; i++) {
+                    showin[i].style.display = 'flex'
+                }
+            } else {
+                document.getElementsByClassName('wrong')[0].style.display = 'flex'
+            }
+        }
+    </script>
+</body>
+</html>
