@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 40px; /* Add padding to ensure content is not too edge-bound */
+        }
+        html {
+            background: linear-gradient(145deg, #C1B8C8, #9E829C);
+        }
+        #title {
+            font-size: 3em; /* Larger font size for the title */
+            margin: 0 auto 20px; /* Increase space below the title */
+            background: rgba(0, 0, 0, 0.6); /* Darker background for better readability */
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%; /* Limit width to enhance readability */
+        }
+        #intro {
+            font-size: 2em;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.5); /* Slightly lighter than title for distinction */
+            padding: 15px;
+            border-radius: 10px;
+            width: 70%; /* Distinguish from title */
+        }
+        .question {
+            font-size: 2.2em; /* Larger font size for the question */
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 10px;
+            width: 75%; /* Distinguish from intro */
+        }
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #007BFF;
+            padding: 15px 30px;
+            margin: 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">Welcome to the Journey for and Against Trade Protection</div>
+    <div id="intro">First, let's start off with a question</div>
+    <div class="question">In your opinion, what is better for a country; free trade or protectionism?</div>
+    <a class="btn" href="protection/protectionism.html">Protectionism</a>
+    <a class="btn" href="free/free_trade.html">Free Trade</a>
+</body>
+</html>
